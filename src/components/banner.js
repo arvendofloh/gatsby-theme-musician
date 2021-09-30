@@ -15,7 +15,7 @@ let bgOverlayStyles = {}
 const BannerContent = ({ title, tagline, heroImg }) => (
   <> 
     {heroImg ? (
-        <Img fixed={heroImg.fixed} alt={title} />
+        <Img fluid={heroImg.fluid} alt={title} />
       ) : (
         <Styled.h1>{title}</Styled.h1>
       )

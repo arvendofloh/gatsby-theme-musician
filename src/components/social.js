@@ -41,6 +41,7 @@ const Social = ({ data }) => {
               href={socialLink.url}
               sx={{ ...iconStyle }}
               rel="external nofollow"
+              target="_blank"
             >
               <Icon name={socialLink.name.toLowerCase()} />
               <VisuallyHidden>{socialLink.name}</VisuallyHidden>

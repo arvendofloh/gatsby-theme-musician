@@ -1,7 +1,10 @@
-const bodyFontFamily = `Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+import "@fontsource/roboto" 
+import "@fontsource/voltaire" 
+
+const bodyFontFamily = `"Roboto" ,-apple-system, BlinkMacSystemFont, "Segoe UI",
   "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
   "Segoe UI Emoji", "Segoe UI Symbol"`
-const headingFontFamily = `Voltaire`
+const headingFontFamily = `"Voltaire", serif`
 
 const typography = {
   headingStyle: {

@@ -49,7 +49,7 @@ export default () => {
    * if user does not add their own siteUrl in siteMetadata
    */
 
-  const defaultSiteUrl = "https://github.com/ekafyi/eka-gatsby-playground"
+  const defaultSiteUrl = "https://akidaband.com"
   if (site.siteMetadata.siteUrl === defaultSiteUrl) {
     site.siteMetadata.siteUrl = "//"
   }
@@ -89,8 +89,8 @@ const siteQuery = graphql`
     }
     heroImg: imageSharp(fluid: { src: { regex: "/artist-hero./" } }) {
       id
-      fixed(width: 600) {
-        ...GatsbyImageSharpFixed_withWebp
+      fluid(maxWidth: 500) {
+        ...GatsbyImageSharpFluid_withWebp
       }
     }
     logoImg: imageSharp(fluid: { src: { regex: "/artist-logotype./" } }) {
