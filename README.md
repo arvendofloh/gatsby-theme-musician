@@ -1,5 +1,5 @@
 <h1 align="center">
-  Gatsby Theme Musician
+  Fork of Gatsby Theme Musician by [ekafyi](https://github.com/ekafyi)
 </h1>
 
 <p align="center">

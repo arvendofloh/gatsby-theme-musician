@@ -1,12 +1,12 @@
 {
   "name": "gatsby-theme-musician",
-  "version": "1.0.5",
-  "author": "Eka <me@eka.fyi>",
+  "version": "1.0.0",
+  "author": "Florian Joerg <hello@joerg.com>",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ekafyi/gatsby-theme-musician.git"
+    "url": "https://github.com/arvendofloh/gatsby-theme-musician"
   },
   "keywords": [
     "gatsby",
