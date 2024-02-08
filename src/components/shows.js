@@ -1,37 +1,59 @@
 /** @jsx jsx */
 // eslint-disable-next-line no-unused-vars
 import React from "react"
-import { jsx } from "theme-ui"
+import { Styled, jsx } from "theme-ui"
 
-import useSiteMetadata from "../use-site-metadata"
 import LandingSectionTitle from "./landing-section-title"
 import ShowItem from "./show-item"
 
 const Shows = ({ shows = [] }) => {
-  // Use text label from YAML user config
-  let sectionTitle = "Shows"
-  const { textLabels } = useSiteMetadata()
-  if (typeof textLabels.section_shows_title !== "undefined") {
-    if (textLabels.section_shows_title.length) {
-      sectionTitle = textLabels.section_shows_title
-    }
-  }
+  const sortedShows = shows.sort((a,b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  const upcoming = shows.filter((show) => {
+    return new Date(show.date) > new Date();
+  });
+
+  const past = sortedShows.filter((show) => {
+    return new Date(show.date) < new Date();
+  });
 
   return (
     <section id="shows" sx={{ variant: "layout.landingSection" }}>
-      <LandingSectionTitle>{sectionTitle}</LandingSectionTitle>
-      <ol
-        sx={{
-          m: 0,
-          p: 0,
-          listStyle: "none",
-        }}
-      >
-        {shows.length > 0 &&
-          shows.map(node => {
-            return <ShowItem {...node} key={node.id} />
-          })}
-      </ol>
+      {upcoming.length > 0 && (
+      <>
+        <LandingSectionTitle>Upcoming shows</LandingSectionTitle>
+        <Styled.ol
+          sx={{
+            m: 0,
+            p: 0,
+            mb: [4, 5],
+            listStyle: "none",
+          }}
+        >
+          {upcoming.map(node => {
+              return <ShowItem {...node} key={node.id} />
+            })}
+        </Styled.ol>
+        </>
+      )}
+      {past.length > 0 && (
+      <>
+        <LandingSectionTitle>Past shows</LandingSectionTitle>
+        <ol
+          sx={{
+            m: 0,
+            p: 0,
+            listStyle: "none",
+          }}
+        >
+          {past.map(node => {
+              return <ShowItem {...node} key={node.id} />
+            })}
+        </ol>
+        </>
+      )}
     </section>
   )
 }
